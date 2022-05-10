@@ -12,7 +12,7 @@ count = {
   head: 0,
   body: 0,
   shoes: 0,
-  focus: 0,
+  fc: 0,
 }
 
 getUniqueClassEl = (uniqueClass) =>
@@ -47,8 +47,8 @@ function handleKeypress(e) {
 let focus = 'head'
 const bodyParts = ['head', 'body', 'shoes']
 function changeFocus(num) {
-  count['focus'] = (count['focus'] + num).mod(3)
-  focus = bodyParts[count['focus']]
+  count['fc'] = (count['fc'] + num).mod(3)
+  focus = bodyParts[count['fc']]
 }
 
 function changeGarb(num) {
