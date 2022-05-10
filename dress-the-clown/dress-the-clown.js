@@ -8,13 +8,6 @@ Number.prototype.mod = function (n) {
   return ((this % n) + n) % n
 }
 
-count = {
-  head: 0,
-  body: 0,
-  shoes: 0,
-  fc: 0,
-}
-
 getUniqueClassEl = (uniqueClass) =>
   document.getElementsByClassName(uniqueClass)[0]
 
@@ -45,7 +38,15 @@ function handleKeypress(e) {
   }
 }
 let focus = 'head'
-const bodyParts = ['head', 'body', 'shoes']
+const bodyParts = ['shoes', 'body', 'head']
+
+count = {
+  head: 0,
+  body: 0,
+  shoes: 0,
+  fc: 0,
+}
+
 function changeFocus(num) {
   count['fc'] = (count['fc'] + num).mod(3)
   focus = bodyParts[count['fc']]
@@ -53,11 +54,5 @@ function changeFocus(num) {
 
 function changeGarb(num) {
   count[focus] = (count[focus] + num).mod(5)
-  clothesChanger(focus, count[focus])
+  bodyEls[focus].src = `./images/${focus}${count[focus]}.png`
 }
-
-function clothesChanger(garb, index) {
-  bodyEls[garb].src = `./images/${garb}${index}.png`
-}
-
-clothesChanger('head', 1)
